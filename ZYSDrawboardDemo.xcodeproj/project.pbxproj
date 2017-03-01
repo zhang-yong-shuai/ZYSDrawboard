@@ -13,6 +13,7 @@
 		5236260D1E6569BA00B8EDAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5236260B1E6569BA00B8EDAD /* Main.storyboard */; };
 		5236260F1E6569BA00B8EDAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5236260E1E6569BA00B8EDAD /* Assets.xcassets */; };
 		523626121E6569BA00B8EDAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 523626101E6569BA00B8EDAD /* LaunchScreen.storyboard */; };
+		5236261C1E656A0100B8EDAD /* ZYSDrawboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5236261B1E656A0100B8EDAD /* ZYSDrawboardView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		5236260E1E6569BA00B8EDAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		523626111E6569BA00B8EDAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		523626131E6569BA00B8EDAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5236261A1E656A0100B8EDAD /* ZYSDrawboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYSDrawboardView.h; sourceTree = "<group>"; };
+		5236261B1E656A0100B8EDAD /* ZYSDrawboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYSDrawboardView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,7 @@
 		523626011E6569BA00B8EDAD /* ZYSDrawboardDemo */ = {
 			isa = PBXGroup;
 			children = (
+				523626191E656A0100B8EDAD /* DrawboardView */,
 				523626051E6569BA00B8EDAD /* AppDelegate.h */,
 				523626061E6569BA00B8EDAD /* AppDelegate.m */,
 				523626081E6569BA00B8EDAD /* ViewController.h */,
@@ -77,6 +81,15 @@
 				523626031E6569BA00B8EDAD /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		523626191E656A0100B8EDAD /* DrawboardView */ = {
+			isa = PBXGroup;
+			children = (
+				5236261A1E656A0100B8EDAD /* ZYSDrawboardView.h */,
+				5236261B1E656A0100B8EDAD /* ZYSDrawboardView.m */,
+			);
+			path = DrawboardView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +163,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5236261C1E656A0100B8EDAD /* ZYSDrawboardView.m in Sources */,
 				5236260A1E6569BA00B8EDAD /* ViewController.m in Sources */,
 				523626071E6569BA00B8EDAD /* AppDelegate.m in Sources */,
 				523626041E6569BA00B8EDAD /* main.m in Sources */,

@@ -1,27 +1,48 @@
 //
-//  DrawboardView.m
-//  TestDrawboard
+//  ZYSDrawboardView.m
+//  ZYSDrawboardDemo
 //
 //  Created by zys on 2017/2/24.
 //  Copyright © 2017年 XiYiChangXiang. All rights reserved.
 //
 
-#import "DrawboardView.h"
+#import "ZYSDrawboardView.h"
 
-@interface DrawboardView ()
+@interface ZYSDrawboardView ()
 
+/// current layer
 @property (nonatomic, strong) CAShapeLayer *currentDrawLayer;
+
+/// current path(start from touchBegin)
 @property (nonatomic, strong) UIBezierPath *currentDrawPath;
+
+/// save all layers
 @property (nonatomic, strong) NSMutableArray *drawLayerArray;
 
 @end
 
-@implementation DrawboardView
+@implementation ZYSDrawboardView
 
 #pragma mark - life cycle
+- (instancetype)init {
+    if (self = [super init]) {
+        self.backgroundColor = [UIColor whiteColor];
+        self.isEraserEnabled = false;
+        self.panColor = [UIColor blackColor];
+        self.panLineWidth = 2.f;
+        self.eraserLineWidth = 10.f;
+    }
+    
+    return self;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        _isEraserEnabled = false;
+        self.backgroundColor = [UIColor whiteColor];
+        self.isEraserEnabled = false;
+        self.panColor = [UIColor blackColor];
+        self.panLineWidth = 2.f;
+        self.eraserLineWidth = 10.f;
     }
     
     return self;
@@ -59,21 +80,18 @@
 
 #pragma mark - custom methods
 - (CAShapeLayer *)makeDrawLayer:(BOOL)isEraserEnable {
-    CAShapeLayer *drawLayer = nil;
+    CAShapeLayer *drawLayer = [CAShapeLayer layer];
+    drawLayer.frame = self.bounds;
+    drawLayer.fillColor = [UIColor clearColor].CGColor;
     
     if (!isEraserEnable) {
-        drawLayer = [CAShapeLayer layer];
-        drawLayer.frame = self.bounds;
-        drawLayer.lineWidth = 2.f;
-        drawLayer.strokeColor = [UIColor blackColor].CGColor;
+        drawLayer.lineWidth = self.panLineWidth;
+        drawLayer.strokeColor = self.panColor.CGColor;
     } else {
-        drawLayer = [CAShapeLayer layer];
-        drawLayer.frame = self.bounds;
-        drawLayer.lineWidth = 10.f;
-        drawLayer.strokeColor = [UIColor lightGrayColor].CGColor;
+        drawLayer.lineWidth = self.eraserLineWidth;
+        drawLayer.strokeColor = self.backgroundColor.CGColor;
     }
     
-    drawLayer.fillColor = [UIColor clearColor].CGColor;
     [self.layer insertSublayer:drawLayer atIndex:(unsigned)self.drawLayerArray.count];
     [self.drawLayerArray addObject:drawLayer];
     
